@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CACHE_ID="${1:__misc__}"
+CACHE_ID="${1:-__misc__}"
 CACHE_DIR="/tmp/npm-buildpack/$CACHE_ID"
 
 if [ -d node_modules ]; then
