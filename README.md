@@ -2,7 +2,7 @@
 
 Install or build node_modules from a cache
 
-	npm install -g npm-install-cache
+	npm install -g npm-buildpack
 
 ## Usage
 
