@@ -36,5 +36,4 @@ else
 	rm -rf "$CACHE_DIR"
 	cp -r node_modules "$CACHE_DIR"
 	run || exit $?
-	npm prune --production > /dev/null 2> /dev/null
 fi
