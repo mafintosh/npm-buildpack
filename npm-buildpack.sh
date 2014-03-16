@@ -7,11 +7,11 @@ run () {
 
 prune () {
 	# workaround for npm prune not working with bundled-deps
-	for mod in "$(ls node_modules)"; do
+	for mod in $(ls node_modules); do
 		[ -d "node_modules/$mod/node_modules" ] && mv "node_modules/$mod/node_modules" "node_modules/$mod/node_modules.bak"
 	done
 	npm prune > /dev/null 2> /dev/null
-	for mod in "$(ls node_modules)"; do
+	for mod in $(ls node_modules); do
 		[ -d "node_modules/$mod/node_modules.bak" ] && mv "node_modules/$mod/node_modules.bak" "node_modules/$mod/node_modules"
 	done
 }
