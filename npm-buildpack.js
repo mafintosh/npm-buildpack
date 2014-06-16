@@ -39,9 +39,10 @@ if (fs.existsSync('node_modules')) {
   return
 }
 
+if (argv.c) argv.cache = argc.c
 if (argv.cache === true) argv.cache = null
 
-var cache = argv.cache || argv.c || path.join(fs.existsSync('/tmp') ? '/tmp' : os.tmpDir(), 'npm-buildpack')
+var cache = argv.cache || process.env.NPM_BUILDPACK_CACHE || path.join(fs.existsSync('/tmp') ? '/tmp' : os.tmpDir(), 'npm-buildpack')
 var deps = Object.keys(pkg.dependencies || {}).concat(pkg.devDependencies || {})
 var tmp = path.join(cache, argv.name || argv.n || pkg.name || '_global')
 
