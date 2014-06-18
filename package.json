@@ -1,7 +1,7 @@
 {
   "name": "npm-buildpack",
   "description": "Install and build node_modules from cache. Useful when installing node_modules on deployment",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "repository": "git://github.com/mafintosh/npm-buildpack.git",
   "bin": {
     "npm-buildpack": "npm-buildpack.js"
