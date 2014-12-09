@@ -8,14 +8,12 @@ if [ "$1" == "--help" ]; then
   exit 0
 fi
 
-build () {
-  grep '"build":' package.json 2>/dev/null >/dev/null && npm run build
-}
-
 if [ -d node_modules ]; then
-  npm rebuild "$@"
-  build
+  npm rebuild "$@" || exit $?
 else
-  npm install --cache-min 99999999 "$@"
-  build
+  npm install --cache-min 99999999 "$@" || exit $?
+fi
+
+if grep '"build":' package.json 2>/dev/null >/dev/null; then
+  npm run build
 fi
