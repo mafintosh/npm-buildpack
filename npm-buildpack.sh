@@ -32,7 +32,7 @@ else
 	mkdir -p "$CACHE_DIR"
 	cp -r "$CACHE_DIR" node_modules
 	prune
-	npm install || exit $?
+	npm install --cache-min 999999999 || exit $?
 	rm -rf "$CACHE_DIR"
 	cp -r node_modules "$CACHE_DIR"
 	run || exit $?
