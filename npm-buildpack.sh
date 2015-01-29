@@ -11,7 +11,7 @@ fi
 if [ -d node_modules ]; then
   npm rebuild "$@" || exit $?
 else
-  npm install --cache-min 99999999 "$@" || exit $?
+  npm install --cache-min 99999999 "$@" || npm install "$@" || exit $?
 fi
 
 if grep '"build":' package.json 2>/dev/null >/dev/null; then
